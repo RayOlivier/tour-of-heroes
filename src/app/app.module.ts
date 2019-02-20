@@ -4,11 +4,12 @@ import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { HeroesComponent } from "./heroes/heroes.component";
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 //every component needs to be declared in ngModule and the CLI does that for you
 
 @NgModule({
-  declarations: [AppComponent, HeroesComponent],
+  declarations: [AppComponent, HeroesComponent, HeroDetailComponent],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]
