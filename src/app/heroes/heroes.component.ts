@@ -25,6 +25,23 @@ export class HeroesComponent implements OnInit {
     this.selectedHero = hero;
   }
 
+  add(name: string): void {
+    name = name.trim();
+    if (!name) {
+      return;
+    }
+
+    this.heroService.addHero({ name } as Hero).subscribe((hero) => {
+      this.heroes.push(hero);
+    });
+  }
+  delete(hero: Hero): void {
+    this.heroes = this.heroes.filter((h) => h !== hero);
+    //this updates the component's list of heroes
+    this.heroService.deleteHero(hero).subscribe();
+    //If you neglect to subscribe(), the service will not send the delete request to the server! As a rule, an Observable does nothing until something subscribes!
+  }
+
   // The parameter heroService below simultaneously defines a private heroService property and identifies it as a HeroService injection site. When Angular creates a HeroesComponent, the Dependency Injection system sets the heroService parameter to the singleton instance of HeroService.
   constructor(private heroService: HeroService) {}
 
