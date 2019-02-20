@@ -1,16 +1,24 @@
-<h2>My Heroes</h2>
+<!-- <h2>My Heroes</h2>
 <ul class="heroes">
   <li
     *ngFor="let hero of heroes"
     (click)="onSelect(hero)"
     [class.selected]="hero === selectedHero"
   >
-    <!-- This is an example of Angular's event binding syntax.
+    This is an example of Angular's event binding syntax.
 
       The parentheses around click tell Angular to listen for the <li> element's click event. When the user clicks in the <li>, Angular executes the onSelect(hero) expression.
       
-      onSelect() is a HeroesComponent method that you're about to write. Angular calls it with the hero object displayed in the clicked <li>, the same hero defined previously in the *ngFor expression. -->
-    <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+      onSelect() is a HeroesComponent method that you're about to write. Angular calls it with the hero object displayed in the clicked <li>, the same hero defined previously in the *ngFor expression. 
+    <span class="badge">{{ hero.id }}</span> {{ hero.name }} 
+  </li>
+</ul> -->
+
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{ hero.id }}">
+      <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+    </a>
   </li>
 </ul>
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
